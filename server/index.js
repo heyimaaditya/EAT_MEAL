@@ -4,7 +4,7 @@ const cookieparser=require('cookie-parser');
 const app=express();
 require("dotenv").config();
 const db=require("./config/db");
-db.connect();
+db.getConnection();
 app.use(cors());
 app.use(cookieparser());
 app.use(express.json());
