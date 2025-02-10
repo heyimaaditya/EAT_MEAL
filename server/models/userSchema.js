@@ -39,6 +39,26 @@ const userSchema=new mongoose.Schema({
     additionalDetails:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"AdditionalDetails",
+    },
+    complaints: [
+        {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Complaint"
+        }
+      ],
+      img: {
+        type: String,//url of image
+        required: true
+      },
+      isVerified: {
+        type: Boolean,
+        default: false,
+    },
+    token:{
+        type:String,
+    },
+    resetPasswordExpires:{
+        type:Date,
     }
-})
+},{timestamps:true},{strictPopulate:false});
 module.exports=mongoose.model('User',userSchema);
